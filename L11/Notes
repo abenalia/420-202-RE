@@ -1,0 +1,104 @@
+Access Modifiers
+-The access modifiers in java specifies accessibility (scope) of a data member,
+ method, constructor or class.
+-There are 4 types of java access modifiers:
+    -private
+    -default
+    -protected
+    -public
+-Note: There are many non-access modifiers such as static, abstract, synchronized,
+ native, volatile, transient, etc
+
+Default access modifier
+-If you don't use any modifier, it is treated as default by default. The default
+ modifier is accessible only within package.
+
+Protected access modifier
+-The protected access modifier is accessible within package and outside the package
+ but through inheritance only.
+-The protected access modifier can be applied on the data member, method and constructor.
+ It can't be applied on the class.
+
+Order of access modifiers from the least restrictive to the most restrictive
+-public > protected > default > private
+
+
+Generics
+-Generics means parameterized types. The idea is to allow type (Integer, String, … etc.,
+ and user-defined types) to be a parameter to methods, classes, and interfaces. Using
+ Generics, it is possible to create classes that work with different data types.An
+ entity such as class, interface, or method that operates on a parameterized type is a
+ generic entity.
+-Mainly Introduced to deal with type-safe objects. It makes the code stable by detecting
+ the bugs at compile time.
+
+3 advantages of generics.
+    -Type-safety
+    -Type casting is not required
+    -Compile-Time checking
+
+Why Generics?
+-The Object is the superclass of all other classes, and Object reference can refer to any
+ object. These features lack type safety. Generics add that type of safety feature.
+-Type safety means that the compiler will validate types while compiling, and throw an
+error if you try to assign the wrong type to a variable (Trying to put an integer in a
+string String one = 1)
+-Classes like HashSet, ArrayList, HashMap, etc., use generics very well.
+
+Types of Generics
+-Generic Method: Generic Java method takes a parameter and returns some value after
+ performing a task. It is exactly like a normal function, however, a generic method has type
+ parameters that are cited by actual type. This allows the generic method to be used in a more
+ general way. The compiler takes care of the type of safety which enables programmers to code
+ easily since they do not have to perform long, individual type castings.
+-Generic Classes: A generic class is implemented exactly like a non-generic class. The only
+ difference is that it contains a type parameter section. There can be more than one type of
+ parameter, separated by a comma. The classes, which accept one or more parameters, are known as
+ parameterized classes or parameterized types.
+
+Generic class
+-A class that can refer to any type is known as a generic class. Here, we are using the T type
+ parameter to create the generic class of specific type.
+
+Generic Method
+-We can create a generic method that can accept any type of arguments.
+-Here, the scope of arguments is limited to the method where it is declared. It allows static as
+ well as non-static methods.
+   -T:Type
+   -E:Element
+   -K:Key
+   -N:Number
+   -V:Value
+
+Wildcard in Java Generics
+-The ? (question mark) symbol represents the wildcard element. It means any type. If we write <?
+ extends Number>, it means any child class of Number, e.g., Integer, Float, and double. Now we can
+ call the method of Number class through any child class object.
+
+Upper Bounded Wildcards
+-The purpose of upper bounded wildcards is to decrease the restrictions on a variable. It restricts
+ the unknown type to be a specific type or a subtype of that type.
+-It is used by declaring wildcard character ("?") followed by the extends (in case of, class) or
+ implements (in case of, interface) keyword, followed by its upper bound.
+-List<?extends Number>
+    -?, is a wildcard character
+    -extends, is a keyword
+    -Number, is a class present in java.lang package
+-We want to write the method for the list of Number and its subtypes (like Integer, Double).
+-Using List<? extends Number> is suitable for a list of type Number or any of its subclasses whereas
+ List<Number> works with the list of type Number only.
+-So, List<? extends Number> is less restrictive than List<Number>
+
+Lower Bounded Wildcards
+-The purpose of lower bounded wildcards is to restrict the unknown type to be a specific type or a
+ supertype of that type.
+-It is used by declaring wildcard character ("?") followed by the super keyword, followed by its
+ lower bound.
+-List<? super Integer>
+    -?, is a wildcard character
+    -super, is a keyword
+    -Number, is a wrapper class
+-We want to write the method for the list of Integer and its supertype (like Number, Object).
+-Using List<? super Integer> is suitable for a list of type Integer or any of its superclasses
+ whereas List<Integer> works with the list of type Integer only.
+-So, List<? super Integer> is less restrictive than List<Integer>.
